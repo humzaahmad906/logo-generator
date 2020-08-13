@@ -1,3 +1,3 @@
-# logoGenerator
-# LogoGenerator
-# LOGO_GENERATOR
+# logoGenerator variables
+# LogoGenerator class
+# LOGO_GENERATOR const
