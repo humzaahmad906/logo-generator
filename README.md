@@ -1,1 +1,2 @@
 # logoGenerator
+# LogoGenerator
