@@ -18,7 +18,6 @@ export default function NavBar(props){
               duration: theme.transitions.duration.leavingScreen,
             }),
           },
-        shifting:`calc(100% - ${drawerWidth}px)`,
         appBarShift: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
@@ -30,7 +29,6 @@ export default function NavBar(props){
     }));
     const classes = useStyles();
     const theme = useTheme();
-    console.log(classes.shifting)
     
     return (
         <AppBar 
@@ -47,9 +45,15 @@ export default function NavBar(props){
              onClick={()=>{props.openDrawer()}}>
                 <MenuIcon />
             </IconButton>)}
-            <Typography variant="h6" color="inherit">
-                Logo Generator
-            </Typography>
+            <div className={'d-flex my-auto'}>
+              <Typography variant="h6" color="inherit">
+                  Logo Generator
+              </Typography>
+              <div className={"ml-3"}></div>
+              <div variant="h6" className={"ml-3 mt-1"}>Color Swatch</div>
+              <div className={"ml-3 mt-1"}>Auto</div>
+            </div>
+            
             </Toolbar>
         </AppBar>
     )

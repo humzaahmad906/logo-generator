@@ -1,6 +1,7 @@
 
 import React from 'react';
 import clsx from 'clsx';
+import TextFieldsIcon from '@material-ui/icons/TextFields';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
     },
+    drawerPaper: {
+        width: drawerWidth,
+    },
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
@@ -35,30 +39,38 @@ export default function SideBar(props){
          style={{background:"#3d4849"}}
          className={classes.drawer}
          variant="persistent"
-         anchor="left">
+         anchor="left"
+         classes={{
+            paper: classes.drawerPaper,
+          }}>
             <div>
                 <IconButton onClick={()=>{props.closeDrawer()}}>
                     <ChevronLeftIcon />
                 </IconButton>
             </div>
             <Divider />
-            <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-                </ListItem>
-            ))}
-            </List>
-            <Divider />
-            <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-                </ListItem>
-            ))}
-            </List>
+            <div className={"d-flex justify-content-between"}>
+                <div className={"border rounded ml-3 mt-3"}>
+                    <div className={"m-2"}>
+                        <TextFieldsIcon color="disabled"/>
+                    </div>
+                    <Divider/>
+                    <div className={"m-2"}>
+                        <TextFieldsIcon color="disabled"/>
+                    </div>
+                    <Divider/>
+                    <div className={"m-2"}>
+                        <TextFieldsIcon color="disabled"/>
+                    </div>
+                    <Divider/>
+                    <div className={"m-2"}>
+                        <TextFieldsIcon color="disabled"/>
+                    </div>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
         </Drawer>
     )
 }
