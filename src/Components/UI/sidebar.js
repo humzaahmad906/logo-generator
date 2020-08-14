@@ -18,23 +18,28 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-
+const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
     },
-    appBar: {
-        position: 'relative',
-        zzIndex: theme.zIndex.drawer + 1
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
     },}))
-export default function SideBar(){
+export default function SideBar(props){
     const classes = useStyles();
+    console.log(props.drawerState);
     return(
-        <Drawer variant="permanent" className={clsx(classes.appBar)}>
+        <Drawer open={props.drawerState}
+         style={{background:"#3d4849"}}
+         className={classes.drawer}
+         variant="persistent"
+         anchor="left">
             <div>
-            <IconButton>
-            
-            </IconButton>
+                <IconButton onClick={()=>{props.closeDrawer()}}>
+                    <ChevronLeftIcon />
+                </IconButton>
             </div>
             <Divider />
             <List>

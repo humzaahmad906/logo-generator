@@ -3,11 +3,21 @@ import NavBar from './appbar';
 import SideBar from './sidebar';
 
 class MainView extends Component{
+    constructor(props){
+        super(props);
+        this.state = {drawerOpen: true};
+    }
+    openDrawer = () => {
+        this.setState({drawerOpen:true});
+    }
+    closeDrawer = () => {
+        this.setState({drawerOpen:false});
+    }
     render(){
         return(
             <React.Fragment>
-                <div><NavBar/></div>
-                <div><SideBar/></div>
+                <NavBar drawerState={this.state.drawerOpen} openDrawer={this.openDrawer}/>
+                <SideBar drawerState={this.state.drawerOpen} closeDrawer={this.closeDrawer}/>
                 
             </React.Fragment>
         )
