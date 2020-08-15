@@ -19,7 +19,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-const drawerWidth = 240;
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+
+const drawerWidth = 400;
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -51,20 +53,20 @@ export default function SideBar(props){
             <Divider />
             <div className={"d-flex justify-content-between"}>
                 <div className={"border rounded ml-3 mt-3"}>
-                    <div className={"m-2"}>
-                        <TextFieldsIcon color="disabled"/>
+                    <div className={"m-3"}>
+                        <TextFieldsIcon fontSize={"medium"} color="disabled"/>
                     </div>
                     <Divider/>
-                    <div className={"m-2"}>
-                        <TextFieldsIcon color="disabled"/>
+                    <div className={"m-3"}>
+                        <TextFieldsIcon fontSize={"medium"} color="disabled"/>
                     </div>
                     <Divider/>
-                    <div className={"m-2"}>
-                        <TextFieldsIcon color="disabled"/>
+                    <div className={"m-3"}>
+                        <TextFieldsIcon fontSize={"medium"} color="disabled"/>
                     </div>
                     <Divider/>
-                    <div className={"m-2"}>
-                        <TextFieldsIcon color="disabled"/>
+                    <div className={"m-3"}>
+                        <CheckBoxOutlineBlankIcon fontSize={"medium"} color={"disabled"}/>
                     </div>
                 </div>
                 <div>

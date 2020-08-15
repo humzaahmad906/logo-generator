@@ -5,7 +5,7 @@ import SideBar from './sidebar';
 class MainView extends Component{
     constructor(props){
         super(props);
-        this.state = {drawerOpen: true};
+        this.state = {drawerOpen: false};
     }
     openDrawer = () => {
         this.setState({drawerOpen:true});

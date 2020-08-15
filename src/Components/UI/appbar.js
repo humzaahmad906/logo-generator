@@ -6,8 +6,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import ColorSwatch from './helper/colorswatch';
+
 export default function NavBar(props){
-    const drawerWidth = 240;
+    const drawerWidth = 400;
     const useStyles = makeStyles((theme) => ({
         root: {
           display: 'flex',
@@ -45,13 +47,14 @@ export default function NavBar(props){
              onClick={()=>{props.openDrawer()}}>
                 <MenuIcon />
             </IconButton>)}
-            <div className={'d-flex my-auto'}>
-              <Typography variant="h6" color="inherit">
+            <div className={'d-flex'}>
+              <Typography variant="h4" color="inherit">
                   Logo Generator
               </Typography>
               <div className={"ml-3"}></div>
-              <div variant="h6" className={"ml-3 mt-1"}>Color Swatch</div>
-              <div className={"ml-3 mt-1"}>Auto</div>
+              {/* <div variant="h6" className={"ml-3 my-auto"}>Color Swatch</div> */}
+              <ColorSwatch color={"black"}/>
+              <div className={"ml-3  my-auto"}>Auto</div>
             </div>
             
             </Toolbar>
