@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NavBar from './appbar';
 import SideBar from './sidebar';
+import Canvas from '../Canvas/canvas';
 
 class MainView extends Component{
     constructor(props){
@@ -18,6 +19,7 @@ class MainView extends Component{
             <React.Fragment>
                 <NavBar drawerState={this.state.drawerOpen} openDrawer={this.openDrawer}/>
                 <SideBar drawerState={this.state.drawerOpen} closeDrawer={this.closeDrawer}/>
+                <div className={'d-flex align-items-center justify-content-between'}><Canvas/></div>
                 
             </React.Fragment>
         )

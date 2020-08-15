@@ -48,13 +48,13 @@ export default function NavBar(props){
                 <MenuIcon />
             </IconButton>)}
             <div className={'d-flex'}>
-              <Typography variant="h4" color="inherit">
+              <Typography className={"ml-3"} variant="h5" color="inherit">
                   Logo Generator
               </Typography>
               <div className={"ml-3"}></div>
               {/* <div variant="h6" className={"ml-3 my-auto"}>Color Swatch</div> */}
               <ColorSwatch color={"black"}/>
-              <div className={"ml-3  my-auto"}>Auto</div>
+              <div className={"h5 ml-3  my-auto"}>Auto</div>
             </div>
             
             </Toolbar>

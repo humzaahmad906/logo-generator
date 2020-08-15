@@ -53,19 +53,19 @@ export default function SideBar(props){
             <Divider />
             <div className={"d-flex justify-content-between"}>
                 <div className={"border rounded ml-3 mt-3"}>
-                    <div className={"m-3"}>
+                    <div className={"m-3"} style={{'cursor': 'pointer'}}>
                         <TextFieldsIcon fontSize={"medium"} color="disabled"/>
                     </div>
                     <Divider/>
-                    <div className={"m-3"}>
+                    <div className={"m-3"} style={{'cursor': 'pointer'}}>
                         <TextFieldsIcon fontSize={"medium"} color="disabled"/>
                     </div>
                     <Divider/>
-                    <div className={"m-3"}>
+                    <div className={"m-3"} style={{'cursor': 'pointer'}}>
                         <TextFieldsIcon fontSize={"medium"} color="disabled"/>
                     </div>
                     <Divider/>
-                    <div className={"m-3"}>
+                    <div className={"m-3"} style={{'cursor': 'pointer'}}>
                         <CheckBoxOutlineBlankIcon fontSize={"medium"} color={"disabled"}/>
                     </div>
                 </div>
