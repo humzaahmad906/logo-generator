@@ -7,6 +7,7 @@ class MainView extends Component{
     constructor(props){
         super(props);
         this.state = {drawerOpen: false};
+        this.drawerWidth = 400;
     }
     openDrawer = () => {
         this.setState({drawerOpen:true});
@@ -15,13 +16,24 @@ class MainView extends Component{
         this.setState({drawerOpen:false});
     }
     render(){
+        const renderDiv = () =>{
+            if(this.state.drawerOpen){
+                return <div style={{"width":"400px","height":"400px"}}>
+                </div>
+            }else{return <div></div> }
+        }
+        
         return(
-            <React.Fragment>
+            <div>
                 <NavBar drawerState={this.state.drawerOpen} openDrawer={this.openDrawer}/>
                 <SideBar drawerState={this.state.drawerOpen} closeDrawer={this.closeDrawer}/>
-                <div className={'d-flex align-items-center justify-content-between'}><Canvas/></div>
+                <div className={'d-flex text-align-center justify-content-center py-5'}>
+                    {renderDiv()}
+                    
+                    <Canvas/>
+                </div>
                 
-            </React.Fragment>
+            </div>
         )
     }
 }
