@@ -3,6 +3,7 @@ import NavBar from './appbar';
 import SideBar from './sidebar';
 import Canvas from '../Canvas/canvas';
 
+
 class MainView extends Component{
     constructor(props){
         super(props);
@@ -29,7 +30,6 @@ class MainView extends Component{
                 <SideBar drawerState={this.state.drawerOpen} closeDrawer={this.closeDrawer}/>
                 <div className={'d-flex text-align-center justify-content-center py-5'}>
                     {renderDiv()}
-                    
                     <Canvas/>
                 </div>
                 

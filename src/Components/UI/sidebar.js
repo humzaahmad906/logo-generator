@@ -1,7 +1,6 @@
 
 import React from 'react';
 import clsx from 'clsx';
-import TextFieldsIcon from '@material-ui/icons/TextFields';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -19,7 +18,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import MainPanel from './Panel/mainpanel';
+import NamePanel from './namepanel'
 
 const drawerWidth = 400;
 const useStyles = makeStyles((theme) => ({
@@ -52,25 +52,9 @@ export default function SideBar(props){
             </div>
             <Divider />
             <div className={"d-flex justify-content-between"}>
-                <div className={"border rounded ml-3 mt-3"}>
-                    <div className={"m-3"} style={{'cursor': 'pointer'}}>
-                        <TextFieldsIcon fontSize={"medium"} color="disabled"/>
-                    </div>
-                    <Divider/>
-                    <div className={"m-3"} style={{'cursor': 'pointer'}}>
-                        <TextFieldsIcon fontSize={"medium"} color="disabled"/>
-                    </div>
-                    <Divider/>
-                    <div className={"m-3"} style={{'cursor': 'pointer'}}>
-                        <TextFieldsIcon fontSize={"medium"} color="disabled"/>
-                    </div>
-                    <Divider/>
-                    <div className={"m-3"} style={{'cursor': 'pointer'}}>
-                        <CheckBoxOutlineBlankIcon fontSize={"medium"} color={"disabled"}/>
-                    </div>
-                </div>
+                <NamePanel/>
                 <div>
-                    
+                    <MainPanel/>
                 </div>
             </div>
         </Drawer>
