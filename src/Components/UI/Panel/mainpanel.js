@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import panel from '../../Data/paneldata';
 import IconPanel from './iconpanel';
 import ContainerPanel from './containerpanel';
 import ColorPanel from './colorpanel';
@@ -10,32 +9,29 @@ import createPanel from './../../Data/paneldata'
 class MainPanel extends Component{
     constructor(props){
         super(props);
-        let panel = createPanel();
-        console.log(createPanel)
-        this.textPanel = this.props.activePanel===panel.textPanel && (
-            <TextPanel/>
-        );
-        this.containerPanel = this.props.activePanel===panel.containerPannel && (
-            <ContainerPanel/>
-        );
-        this.iconPanel = this.props.activePanel===panel.iconPanel && (
-            <IconPanel/>
-        );
-        this.colorPanel = this.props.activePanel===panel.colorPanel && (
-            <ColorPanel/>
-        );
+        this.panel = createPanel();
+        
     }
     componentDidMount(){
        
     }
     render(){
         return(
-            <div>
-                {this.iconPanel}{this.textPanel}{this.containerPanel}{this.colorPanel}
-            </div>
-            
+            <div style={{'width':'300px'}} className={"border rounded mr-3 mt-3"}>
+                {this.props.activePanel===this.panel.textPanel && (
+                    <TextPanel/>
+                )}{
+                this.props.activePanel===this.panel.containerPanel && (
+                    <ContainerPanel/>
+                )}{
+                this.props.activePanel===this.panel.iconPanel && (
+                    <IconPanel/>
+                )}{
+                this.props.activePanel===this.panel.colorPanel && (
+                    <ColorPanel/>
+                )}
+            </div>   
         )
-        
     }
 }
 const mapStateToProps = (state) => ({

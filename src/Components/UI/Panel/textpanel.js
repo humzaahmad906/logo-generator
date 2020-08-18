@@ -1,8 +1,11 @@
 import React,{ Component } from "react";
+import CustomInput from '../helper/custominput'
 class TextPanel extends Component{
     render(){
         return (
-            <div>Text Panel</div>
+            <div>
+                <CustomInput color={"black"}/>
+            </div>
         )
     }
 }
