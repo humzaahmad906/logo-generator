@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
+import Popover from '@material-ui/core/Popover';
 import { SketchPicker } from 'react-color'
 import ColorSwatch from './colorswatch'
 
@@ -22,18 +21,14 @@ function SimpleDialog(props) {
 
 
   return (
-    <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-      <div className={"d-flex justify-content-between"}>
-        <DialogTitle id="simple-dialog-title">Color Picker</DialogTitle>
-        <div>More Colors</div>
-      </div>
+    <Popover onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
       <SketchPicker
             className="color-pick"
             color={colorNew}
             onChangeComplete={handleColorComplete}
             onChange={handleChange}
         />
-    </Dialog>
+    </Popover>
   );
 }
 
