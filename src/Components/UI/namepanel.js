@@ -15,7 +15,7 @@ class NamePanel extends Component{
     }
     render(){
         return (
-            <div className={"border rounded ml-3 mt-3"}>
+            <div className={"border rounded ml-3 mt-3"} style={{height:"230px"}}>
                 <div className={"p-3"} style={{'cursor': 'pointer'}} onClick={()=>{this.props.setPanel(this.panel.textPanel)}}>
                     <TextFieldsIcon fontSize={"medium"} color="disabled"/>
                 </div>

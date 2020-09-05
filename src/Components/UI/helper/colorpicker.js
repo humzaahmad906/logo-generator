@@ -31,19 +31,21 @@ function SimpleDialog(props) {
     
       <Popover onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
         <Tabs value={tab} onChange={handleTabChange} aria-label="simple tabs example">
-          <Tab label="COLOR_PICKER"/>
-          <Tab label="COLOR_PALETTE"/>
+          <Tab label="Color Picker"/>
+          <Tab label="Color Palette"/>
         </Tabs>
-        <div hidden={tab!==0}>
-          <SketchPicker
-                className="color-pick"
-                color={colorNew}
-                onChangeComplete={handleColorComplete}
-                onChange={handleChange}
-            />
-        </div>
-        <div hidden={tab!==1}>
-          hey i'm a color palette
+        <div className={"d-flex flex-wrap justify-content-center"}>
+          <div hidden={tab!==0}>
+            <SketchPicker
+                  className="color-pick"
+                  color={colorNew}
+                  onChangeComplete={handleColorComplete}
+                  onChange={handleChange}
+              />
+          </div>
+          <div hidden={tab!==1}>
+            hey i'm a color palette
+          </div>
         </div>
       </Popover>
   );
