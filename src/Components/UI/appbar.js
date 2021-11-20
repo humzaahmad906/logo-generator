@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ColorSwatch from './helper/colorswatch';
+import ColorPicker from './helper/colorpicker'
 
 export default function NavBar(props){
     const drawerWidth = 400;
@@ -53,8 +54,8 @@ export default function NavBar(props){
               </Typography>
               <div className={"ml-3"}></div>
               {/* <div variant="h6" className={"ml-3 my-auto"}>Color Swatch</div> */}
-              <ColorSwatch color={"black"}/>
-              <div className={"h5 ml-3  my-auto"}>Auto</div>
+              <ColorPicker />
+              {/* <ColorSwatch color={"black"} size={"MEDIUM"}/> */}
             </div>
             
             </Toolbar>

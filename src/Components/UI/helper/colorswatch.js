@@ -39,7 +39,7 @@ export default function ColorSwatch(props) {
     <Button
       onClick={()=>{props.setOpen(true)}}
       classes={{
-        root: classes.root, // class name, e.g. `classes-nesting-root-x`
+        root: classes.root,
         }}>
     </Button>
   );
