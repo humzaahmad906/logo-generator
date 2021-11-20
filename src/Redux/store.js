@@ -19,7 +19,6 @@ const activeObjectReducer = (state = null, action) => {
     return state;
 }
 const panelReducer = (state = null, action) => {
-    // console.log(action)
     if(action.type === SET_PANEL){
         console.log("active panel:", state)
         return action.payload;
