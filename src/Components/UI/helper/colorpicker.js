@@ -6,6 +6,8 @@ import ColorSwatch from './colorswatch';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
+import ColorPalette from './colorpalette';
+
 function SimpleDialog(props) {
   const [tab, setTab] = React.useState(0)
   const { onClose, open } = props;
@@ -44,7 +46,7 @@ function SimpleDialog(props) {
               />
           </div>
           <div hidden={tab!==1}>
-            hey i'm a color palette
+            <ColorPalette/>
           </div>
         </div>
       </Popover>

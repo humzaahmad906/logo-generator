@@ -1,47 +1,53 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+
+
+import ColorSwatch from './colorswatch'
+
+function flexGroup(props){
+  const groupColorArray = props.groupColorArray
+  const margins = props.margins
+  const styles = {
+    marginLeft: margins.x/2, 
+    marginRight: margins.x/2,
+    marginTop: margins.y/2,
+    marginBottom: margins.y/2
+  }
+  return (
+  <span style={styles}>
+    {groupColorArray.map(color => <ColorSwatch size={"MEDIUM"} color={"#"+color}/>)}
+  </span>
+  )
+}
 
 export default function CustomColorSwatch(props) {
-  let size = null
-  switch(props.size){
-    case "LARGE":
-      size = 35;
-      break;
-    case "MEDIUM":
-      size = 25;
-      break;
-    case "SMALL":
-      size = 15;
-      break;
-    default:
-      console.log(props.size);
+  const colorsPerBlock = props.colorsPerBlock
+  const numberOfBlocks = props.numberOfBlocks
+  const colorArray = props.colorArray
+  const margins = {
+    x: "5px",
+    y: "2px"
   }
-
-  const useStyles = makeStyles({
-      root: {
-        hover:{'background-color':props.color},
-        background: props.color,
-        borderRadius: 0,
-        border: 0,
-        color: props.color,
-        maxHeight: size,
-        maxWidth: size,
-        minHeight: size,
-        minWidth: size,
-        padding: '0 0',
-        boxShadow: '2px rgba(255, 255, 255, .3)',
-      },
-      
-    });
-  const classes = useStyles();
-
+  let colorInRow = []
+  while(colorArray.length) {
+    let colorBlock = []
+    for(let i=0; i<numberOfBlocks; i++){
+      let block = colorArray.splice(0, colorsPerBlock)
+      colorBlock.push(block)
+    }
+    colorInRow.push(colorBlock);
+  }
+  console.log(colorInRow)
+  const colorBlocks = colorInRow.map(row => row.splice(colorsPerBlock))
+  
   return (
-    <Button
-      onClick={(e)=>{props.onClick(e)}}
-      classes={{
-        root: classes.root, // class name, e.g. `classes-nesting-root-x`
-        }}>
-    </Button>
+    <div>
+      {
+        colorBlocks.map(
+          colorRow => <div className={"d-flex"}>{
+            colorRow.map(colorBlock => <flexGroup margins={margins} groupColorArray={colorBlock}/>)
+            }</div>
+        )
+      }
+    </div>
   );
 }
