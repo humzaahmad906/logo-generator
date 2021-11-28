@@ -47,7 +47,6 @@ function SimpleDialog(props) {
             }
         }
     });
-  console.log(theme2)
   return (
       <MuiThemeProvider theme={theme2}>
       <Popover
@@ -78,7 +77,7 @@ function SimpleDialog(props) {
               />
           </div>
           <div hidden={tab!==1}>
-            <ColorPalette/>
+            <ColorPalette closestColor={colorNew} setColor={props.setSelectedValue}/>
           </div>
         </div>
       </Popover>
@@ -95,7 +94,7 @@ SimpleDialog.propTypes = {
 export default function ColorPicker() {
   const [open, setOpen] = React.useState(false);
   const [position, setPosition] = React.useState({left: 0, top: 0})
-  const [selectedValue, setSelectedValue] = React.useState("black");
+  const [selectedValue, setSelectedValue] = React.useState("#000000");
 
   const handleClose = (value) => {
     setOpen(false);
@@ -107,7 +106,7 @@ export default function ColorPicker() {
     <React.Fragment>
 
       <ColorSwatch color={selectedValue} size={"MEDIUM"} setOpen={setOpen} setPosition={setPosition}/>
-      <SimpleDialog open={open} setSelectedValue={setSelectedValue} onClose={handleClose} position={position}/>
+      <SimpleDialog open={open} setSelectedValue={setSelectedValue} onClose={handleClose} position={position} color={selectedValue}/>
     </React.Fragment>
   );
 }

@@ -3,21 +3,6 @@ import React from 'react';
 
 import ColorSwatch from './colorswatch'
 
-function flexGroup(props){
-  const groupColorArray = props.groupColorArray
-  const margins = props.margins
-  const styles = {
-    marginLeft: margins.x/2, 
-    marginRight: margins.x/2,
-    marginTop: margins.y/2,
-    marginBottom: margins.y/2
-  }
-  return (
-  <span style={styles}>
-    {groupColorArray.map(color => <ColorSwatch size={"MEDIUM"} color={"#"+color}/>)}
-  </span>
-  )
-}
 
 export default function CustomColorSwatch(props) {
   const colorsPerBlock = props.colorsPerBlock
@@ -28,26 +13,31 @@ export default function CustomColorSwatch(props) {
     y: "2px"
   }
   let colorInRow = []
-  while(colorArray.length) {
-    let colorBlock = []
-    for(let i=0; i<numberOfBlocks; i++){
-      let block = colorArray.splice(0, colorsPerBlock)
-      colorBlock.push(block)
-    }
-    colorInRow.push(colorBlock);
-  }
+  // while(colorArray.length) {
+  //   let colorBlock = []
+  //   for(let i=0; i<numberOfBlocks; i++){
+  //     let block = colorArray.splice(0, colorsPerBlock)
+  //     colorBlock.push(block)
+  //   }
+  //   colorInRow.push(colorBlock);
+  // }
   console.log(colorInRow)
   const colorBlocks = colorInRow.map(row => row.splice(colorsPerBlock))
-  
-  return (
-    <div>
-      {
-        colorBlocks.map(
-          colorRow => <div className={"d-flex"}>{
-            colorRow.map(colorBlock => <flexGroup margins={margins} groupColorArray={colorBlock}/>)
-            }</div>
-        )
-      }
-    </div>
-  );
+  console.log("setColor", props.setColor)
+  return <div className={"d-flex flex-wrap justify-content-center"} style={{'width':"200px"}}>
+    {
+      colorArray.map(color=><div onClick={(e)=>{props.setColor(e.currentTarget.style.backgroundColor)}} className={"m-1"} style={{'background-color':color, height:'25px', width:'25px'}}></div>)
+    }
+  </div>
+  // return (
+  //   <div>
+  //     {
+  //       colorInRow.map(
+  //         colorRow => <div className={"d-flex"}>{
+  //           colorRow.map(colorBlock => <FlexGroup margins={margins} groupColorArray={colorBlock}/>)
+  //           }</div>
+  //       )
+  //     }
+  //   </div>
+  // );
 }

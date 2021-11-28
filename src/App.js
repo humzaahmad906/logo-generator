@@ -10,8 +10,8 @@ import './App.css';
 
 import MainView from './Components/UI/mainview';
 import store from './Redux/store'
-import RecommenderUI from './Components/UI/recommender/recommenderdesign'
-import RecommendationForm from './Components/UI/recommender/recommendationform'
+import RecommenderUI from './Components/UI/recommendations/recommenderdesign'
+import RecommendationForm from './Components/UI/recommendation_form/recommendationform'
 
 
 class App extends Component {
