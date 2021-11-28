@@ -5,6 +5,11 @@ import { SketchPicker } from 'react-color';
 import ColorSwatch from './colorswatch';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import {
+    makeStyles,
+    MuiThemeProvider,
+    createMuiTheme
+} from "@material-ui/core/styles";
 
 import ColorPalette from './colorpalette';
 
@@ -27,11 +32,38 @@ function SimpleDialog(props) {
     console.log("tab value is", newValue)
     setTab(newValue);
   }
-
-
+  console.log(props.position)
+    const theme2 = createMuiTheme({
+        overrides: {
+            MuiPopover: {
+                root: {
+                    overflow: "scroll"
+                },
+                paper: {
+                    left: `${props.position.left}px !important`,
+                    top: `${props.position.top}px !important`,
+                    overflowY: "auto"
+                }
+            }
+        }
+    });
+  console.log(theme2)
   return (
-    
-      <Popover onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
+      <MuiThemeProvider theme={theme2}>
+      <Popover
+          onClose={handleClose}
+          aria-labelledby="simple-dialog-title"
+          open={open}
+          anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center"
+          }}
+          transformOrigin={{
+              vertical: "top",
+              horizontal: "center"
+          }}
+
+      >
         <Tabs value={tab} onChange={handleTabChange} aria-label="simple tabs example">
           <Tab label="Color Picker"/>
           <Tab label="Color Palette"/>
@@ -50,6 +82,7 @@ function SimpleDialog(props) {
           </div>
         </div>
       </Popover>
+      </MuiThemeProvider>
   );
 }
 
@@ -61,19 +94,20 @@ SimpleDialog.propTypes = {
 
 export default function ColorPicker() {
   const [open, setOpen] = React.useState(false);
+  const [position, setPosition] = React.useState({left: 0, top: 0})
   const [selectedValue, setSelectedValue] = React.useState("black");
 
   const handleClose = (value) => {
     setOpen(false);
     setSelectedValue(value);
   };
-  
+
 
   return (
     <React.Fragment>
-      
-      <ColorSwatch color={selectedValue} size={"MEDIUM"} setOpen={setOpen}/>
-      <SimpleDialog open={open} setSelectedValue={setSelectedValue} onClose={handleClose} />
+
+      <ColorSwatch color={selectedValue} size={"MEDIUM"} setOpen={setOpen} setPosition={setPosition}/>
+      <SimpleDialog open={open} setSelectedValue={setSelectedValue} onClose={handleClose} position={position}/>
     </React.Fragment>
   );
 }

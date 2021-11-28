@@ -37,7 +37,10 @@ export default function ColorSwatch(props) {
 
   return (
     <Button
-      onClick={()=>{props.setOpen(true)}}
+      onClick={(e)=>{props.setOpen(true);
+        console.log(e.clientX);
+        props.setPosition({left: e.clientX, top: e.clientY})
+      }}
       classes={{
         root: classes.root,
         }}>

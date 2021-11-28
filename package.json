@@ -11,6 +11,7 @@
     "bootstrap": "^4.6.1",
     "fabric": "^3.6.3",
     "jquery": "^3.6.0",
+    "material-ui-popup-state": "^2.0.0",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-bootstrap": "^0.32.4",

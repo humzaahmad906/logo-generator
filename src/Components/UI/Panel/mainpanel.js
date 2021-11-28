@@ -8,23 +8,26 @@ import createPanel from './../../Data/paneldata'
 import axios from 'axios';
 import {savePalettes} from '../../../Redux/actions';
 
+
+import {COLOR_PALETTE_LINK} from "../../../configs"
+
 class MainPanel extends Component{
     constructor(props){
         super(props);
         this.panel = createPanel();
+        this.highlightedPalette = {};
         
     }
     componentDidMount(){
-       axios.get('http://127.0.0.1:5000/panel/colorPanel')
+       axios.get(COLOR_PALETTE_LINK)
        .then((res)=>{
-           this.props.savePalettes(res.data.colors);
+           this.props.savePalettes(res.data);
        })
        .catch((err)=>{
            console.log(err);
        })
     }
     render(){
-        this.props.activePanel
         return(
             <div style={{'width':'300px'}} className={"border rounded mr-3 mt-3"}>
                 {this.props.activePanel===this.panel.textPanel && (
@@ -37,7 +40,7 @@ class MainPanel extends Component{
                     <IconPanel/>
                 )}{
                 this.props.activePanel===this.panel.colorPanel && (
-                    <ColorPanel/>
+                    <ColorPanel higlightedPalette={this.highlightedPalette}/>
                 )}
             </div>   
         )

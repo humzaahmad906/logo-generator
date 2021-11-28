@@ -1,6 +1,7 @@
 import {fabric} from 'fabric';
 import React,{Component} from 'react';
 
+
 class Canvas extends Component{
     constructor(){
         super();
@@ -9,7 +10,7 @@ class Canvas extends Component{
         this.canvas = new fabric.Canvas('canvas',{
             height: 500,
             width: 500,
-            backgroundColor: "black",
+            backgroundColor: "grey",
             isDrawingMode: false,
             stateful:true
         });
